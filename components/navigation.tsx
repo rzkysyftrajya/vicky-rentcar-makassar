@@ -5,6 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Phone, X } from "lucide-react"
+import { openWhatsApp } from "@/lib/whatsapp-conversion"
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -58,7 +59,7 @@ export function Navigation() {
   ]
 
   const handleWhatsAppCall = () => {
-    window.open("https://wa.me/6282363389893", "_blank")
+    openWhatsApp("https://wa.me/6282363389893")
   }
 
   const closeMenu = () => {

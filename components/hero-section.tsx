@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { MessageCircle, Phone, Shield, Award, Clock, ChevronLeft, ChevronRight, ArrowDown } from "lucide-react"
+import { openWhatsApp } from "@/lib/whatsapp-conversion"
 
 export function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -69,7 +70,7 @@ export function HeroSection() {
     const message = `Halo PT VICKY RentCar Makassar! Saya tertarik dengan ${heroSlides[currentSlide].title}. Mohon informasi lebih lanjut mengenai ketersediaan dan harga terbaik.`
 
     const whatsappUrl = `https://wa.me/6282363389893?text=${encodeURIComponent(message)}`
-    window.open(whatsappUrl, "_blank")
+    openWhatsApp(whatsappUrl)
   }
 
   const currentSlideData = heroSlides[currentSlide]

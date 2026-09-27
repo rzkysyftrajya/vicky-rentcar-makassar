@@ -3,13 +3,14 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { MessageCircle, Phone, Clock, Star } from "lucide-react"
+import { openWhatsApp } from "@/lib/whatsapp-conversion"
 
 export function CallToAction() {
   const handleWhatsAppBooking = () => {
     const message =
       "Halo PT VRN RentCar! Saya ingin melakukan booking rental mobil. Mohon informasi lebih lanjut mengenai armada yang tersedia dan prosedur booking."
     const whatsappUrl = `https://wa.me/6282363389893?text=${encodeURIComponent(message)}`
-    window.open(whatsappUrl, "_blank")
+    openWhatsApp(whatsappUrl)
   }
 
   const handlePhoneCall = () => {

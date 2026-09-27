@@ -2,12 +2,7 @@
 
 import { MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
-
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void
-  }
-}
+import { openWhatsApp } from "@/lib/whatsapp-conversion"
 
 export function WhatsAppFloat() {
   const handleWhatsAppClick = () => {
@@ -16,22 +11,7 @@ export function WhatsAppFloat() {
 
     const whatsappUrl = `https://wa.me/6282363389893?text=${encodeURIComponent(message)}`
 
-    // Google Ads Conversion Tracking
-    if (typeof window !== "undefined" && typeof window.gtag === "function") {
-      window.gtag("event", "conversion", {
-        send_to: "AW-18095006448/ZE7MCKfrkp0cEPDFr7RD",
-        event_callback: () => {
-          window.open(whatsappUrl, "_blank")
-        },
-      })
-
-      // Fallback jika callback tidak terpanggil
-      setTimeout(() => {
-        window.open(whatsappUrl, "_blank")
-      }, 500)
-    } else {
-      window.open(whatsappUrl, "_blank")
-    }
+    openWhatsApp(whatsappUrl)
   }
 
   return (

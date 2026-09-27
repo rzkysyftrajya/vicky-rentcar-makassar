@@ -146,18 +146,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18095006448"></script>
-<script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'AW-18095006448');
-            `,
-          }}
-        />
         <link rel="canonical" href="https://vickyrentcarmakassar.com" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#7CB342" />
@@ -171,4 +159,3 @@ export default function RootLayout({
     </html>
   );
 }
-

@@ -9,6 +9,7 @@ import {
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Phone, Clock, Shield, MapPin, DollarSign, Users, Car } from 'lucide-react'
+import { openWhatsApp } from "@/lib/whatsapp-conversion"
 
 const faqs = [
   {
@@ -90,7 +91,7 @@ Rental Mobil Makassar
             className="bg-gradient-to-r from-lime-600 to-emerald-600 hover:from-lime-700 text-xl px-12 py-6 font-bold shadow-xl"
             onClick={() => {
 booking rental mobil Makassar
-              window.open(`https://wa.me/6282363389893?text=${encodeURIComponent(message)}`, '_blank')
+              openWhatsApp(`https://wa.me/6282363389893?text=${encodeURIComponent(message)}`)
             }}
           >
             <Phone className="w-6 h-6 mr-2" />
@@ -101,4 +102,3 @@ booking rental mobil Makassar
     </section>
   )
 }
-

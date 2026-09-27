@@ -3,10 +3,11 @@
 import Link from "next/link"
 import { Car, Phone, MessageCircle, Instagram, MapPin, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { openWhatsApp } from "@/lib/whatsapp-conversion"
 
 export function Footer() {
   const handleWhatsAppContact = () => {
-    window.open("https://wa.me/6282363389893", "_blank")
+    openWhatsApp("https://wa.me/6282363389893")
   }
 
   return (

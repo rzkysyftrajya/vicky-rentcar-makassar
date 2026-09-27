@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Shield, Users, Award, Car, MapPin, Phone, MessageCircle, Target, Eye, Heart, Clock } from "lucide-react"
+import { openWhatsApp } from "@/lib/whatsapp-conversion"
 
 export default function TentangPage() {
   const [activeTimeline, setActiveTimeline] = useState(0)
@@ -77,7 +78,7 @@ export default function TentangPage() {
 
   const handleWhatsAppContact = () => {
     const message = "Halo PT VRN RentCar! Saya ingin mengetahui lebih lanjut tentang perusahaan dan layanan Anda."
-    window.open(`https://wa.me/6282363389893?text=${encodeURIComponent(message)}`, "_blank")
+    openWhatsApp(`https://wa.me/6282363389893?text=${encodeURIComponent(message)}`)
   }
 
   return (

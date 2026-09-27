@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Badge } from "@/components/ui/badge"
 import { MapPin, Phone, MessageCircle, Instagram, Clock, Car, CheckCircle } from "lucide-react"
+import { openWhatsApp } from "@/lib/whatsapp-conversion"
 
 export default function KontakPage() {
   // Tambahkan state untuk form validation dan animasi
@@ -65,7 +66,7 @@ Saya ingin melakukan booking rental mobil dengan detail berikut:
 Mohon informasi lebih lanjut mengenai ketersediaan dan prosedur booking. Terima kasih!`
 
     const whatsappUrl = `https://wa.me/6282363389893?text=${encodeURIComponent(message)}`
-    window.open(whatsappUrl, "_blank")
+    openWhatsApp(whatsappUrl)
   }
 
   return (
@@ -184,7 +185,7 @@ Mohon informasi lebih lanjut mengenai ketersediaan dan prosedur booking. Terima 
                     icon: MessageCircle,
                     title: "WhatsApp",
                     content: "Chat Langsung",
-                    action: () => window.open("https://wa.me/6282363389893"),
+                    action: () => openWhatsApp("https://wa.me/6282363389893"),
                     color: "green",
                   },
                   {

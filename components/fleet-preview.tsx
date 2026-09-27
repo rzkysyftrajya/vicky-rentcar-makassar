@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Users, Fuel, MessageCircle, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { fleetData } from "@/lib/fleet-data";
+import { openWhatsApp } from "@/lib/whatsapp-conversion";
 
 // Fallback image helper
 const getCarImageFallback = (carName: string) => {
@@ -34,7 +35,7 @@ export function FleetPreview() {
   const handleWhatsAppBooking = (carName: string) => {
     const message = `Halo PT VICKY RentCar Makassar! Saya tertarik menyewa ${carName}. Info ketersediaan, harga + supir, dan booking ya. Terima kasih!`;
     const whatsappUrl = `https://wa.me/6282363389893?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    openWhatsApp(whatsappUrl);
   };
 
   return (

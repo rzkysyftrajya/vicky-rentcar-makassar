@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Car, UserCheck, MapPin, Mountain, Shield, Clock, CreditCard, CheckCircle, MessageCircle } from "lucide-react"
 import { useState, useEffect } from "react"
+import { openWhatsApp } from "@/lib/whatsapp-conversion"
 
 export default function LayananPage() {
   const [isVisible, setIsVisible] = useState(false)
@@ -15,7 +16,7 @@ export default function LayananPage() {
   const handleWhatsAppContact = () => {
     const message = "Halo PT VRN RentCar! Saya ingin mengetahui lebih lanjut tentang layanan rental mobil Anda."
     const whatsappUrl = `https://wa.me/6282363389893?text=${encodeURIComponent(message)}`
-    window.open(whatsappUrl, "_blank")
+    openWhatsApp(whatsappUrl)
   }
 
   const serviceTypes = [
@@ -256,7 +257,7 @@ export default function LayananPage() {
                       onClick={() => {
                         const message = `Halo PT VRN RentCar! Saya tertarik booking paket destinasi: ${pkg.name}. Mohon estimasi jadwal, ketersediaan, dan detail all-in (Mobil + Driver + BBM).`;
                         const whatsappUrl = `https://wa.me/6282363389893?text=${encodeURIComponent(message)}`;
-                        window.open(whatsappUrl, "_blank");
+                        openWhatsApp(whatsappUrl);
                       }}
                       className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg"
                     >

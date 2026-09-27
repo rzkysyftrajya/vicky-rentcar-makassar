@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { MessageCircle, Phone, CalendarIcon, MapPin, Users, Shield, Check } from "lucide-react"
 import { format } from "date-fns"
 import { id } from "date-fns/locale"
+import { openWhatsApp } from "@/lib/whatsapp-conversion"
 
 interface BookingFormData {
   name: string
@@ -51,7 +52,7 @@ PESAN: ${formData.message}
 Mohon info ketersediaan dan harga terbaik!`
 
     const whatsappUrl = `https://wa.me/6282363389893?text=${encodeURIComponent(message)}`
-    window.open(whatsappUrl, "_blank")
+    openWhatsApp(whatsappUrl)
     setSubmitted(true)
     setTimeout(() => setSubmitted(false), 3000)
     setLoading(false)
@@ -184,4 +185,3 @@ Mohon info ketersediaan dan harga terbaik!`
     </section>
   )
 }
-

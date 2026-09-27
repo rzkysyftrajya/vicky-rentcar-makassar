@@ -19,6 +19,7 @@ import {
   Heart,
 } from "lucide-react"
 import { fleetData } from "@/lib/fleet-data"
+import { openWhatsApp } from "@/lib/whatsapp-conversion"
 
 // Fallback image helper
 const getCarImageFallback = (carName: string) => {
@@ -106,7 +107,7 @@ export default function ArmadaPage() {
   const handleWhatsAppBooking = (carName: string) => {
     const message = `Halo PT VICKY RentCar Makassar! Saya tertarik untuk menyewa ${carName}. Mohon informasi lebih lanjut mengenai ketersediaan dan prosedur booking.`;
     const whatsappUrl = `https://wa.me/6282363389893?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, "_blank");
+    openWhatsApp(whatsappUrl);
   }
 
   const toggleCompare = (carName: string) => {
