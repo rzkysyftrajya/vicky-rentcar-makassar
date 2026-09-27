@@ -3,6 +3,7 @@ const MAKASSAR_HOSTS = new Set([
   "www.vickyrentcarmakassar.com",
   "vrnrentcarmakassar.com",
   "www.vrnrentcarmakassar.com",
+  "pt.vrnrentcarmakassar.com",
 ])
 
 declare global {
