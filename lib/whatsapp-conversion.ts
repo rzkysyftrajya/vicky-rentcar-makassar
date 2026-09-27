@@ -24,13 +24,23 @@ export function openWhatsApp(url: string): void {
   const isWhatsAppUrl = whatsappUrl.hostname === "wa.me"
   const isMakassarWebsite = MAKASSAR_HOSTS.has(window.location.hostname)
 
-  if (isWhatsAppUrl && isMakassarWebsite && typeof window.gtag === "function") {
-    window.gtag("event", "conversion", {
-      send_to: "AW-18095006448/j4rCCIDmoIgdEPDFr7RD",
-      event_callback: () => {
-        window.location.href = whatsappUrl.toString()
-      },
-    })
+  if (isWhatsAppUrl && isMakassarWebsite) {
+    const whatsappWindow = window.open(whatsappUrl.toString(), "_blank")
+
+    if (whatsappWindow) {
+      whatsappWindow.opener = null
+    }
+
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "conversion", {
+        send_to: "AW-18095006448/j4rCCIDmoIgdEPDFr7RD",
+      })
+    }
+
+    if (!whatsappWindow) {
+      window.location.href = whatsappUrl.toString()
+    }
+
     return
   }
 
