@@ -90,7 +90,7 @@ Rental Mobil Makassar
             size="lg" 
             className="bg-gradient-to-r from-lime-600 to-emerald-600 hover:from-lime-700 text-xl px-12 py-6 font-bold shadow-xl"
             onClick={() => {
-booking rental mobil Makassar
+              const message = 'Halo, saya mau booking rental mobil Makassar. Tolong info promo dan ketersediaan ya!'
               openWhatsApp(`https://wa.me/6282363389893?text=${encodeURIComponent(message)}`)
             }}
           >
