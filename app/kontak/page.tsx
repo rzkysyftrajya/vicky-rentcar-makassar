@@ -53,7 +53,7 @@ export default function KontakPage() {
 
     const { nama, telepon, jenisMobil, tanggal, pesan } = formData
 
-    const message = `Halo CVATS RentCar!
+    const message = `Halo PT VRN RentCar!
 
 Saya ingin melakukan booking rental mobil dengan detail berikut:
 

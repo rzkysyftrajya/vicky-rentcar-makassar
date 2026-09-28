@@ -5,7 +5,6 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
-import { Slider } from "@/components/ui/slider"
 import {
   Car,
   Users,
@@ -34,7 +33,6 @@ export default function ArmadaPage() {
   const [selectedCategory, setSelectedCategory] = useState("all")
   const [selectedTransmission, setSelectedTransmission] = useState("all")
   const [searchQuery, setSearchQuery] = useState("")
-  const [priceRange, setPriceRange] = useState([0, 3000000])
   const [showFilters, setShowFilters] = useState(false)
   const [compareList, setCompareList] = useState<string[]>([])
   const [favorites, setFavorites] = useState<string[]>([])
@@ -72,31 +70,12 @@ export default function ArmadaPage() {
     .filter((car) => {
       const categoryMatch = selectedCategory === "all" || car.category === selectedCategory
       const transmissionMatch =
-        selectedTransmission === "all" ||
-        (selectedTransmission === "matic" && car.maticPrice) ||
-        (selectedTransmission === "manual" && car.manualPrice)
+        selectedTransmission === "all" || car.transmissions.includes(selectedTransmission)
       const searchMatch = car.name.toLowerCase().includes(searchQuery.toLowerCase())
-
-      // Price filtering
-      const carPrice = car.maticPrice
-        ? Number.parseInt(car.maticPrice.replace(/[^\d]/g, ""))
-        : car.allInPrice
-          ? Number.parseInt(car.allInPrice.replace(/[^\d]/g, ""))
-          : 0
-      const priceMatch = carPrice >= priceRange[0] && carPrice <= priceRange[1]
-
-      return categoryMatch && transmissionMatch && searchMatch && priceMatch
+      return categoryMatch && transmissionMatch && searchMatch
     })
     .sort((a, b) => {
       switch (sortBy) {
-        case "price-low":
-          const priceA = a.maticPrice ? Number.parseInt(a.maticPrice.replace(/[^\d]/g, "")) : 0
-          const priceB = b.maticPrice ? Number.parseInt(b.maticPrice.replace(/[^\d]/g, "")) : 0
-          return priceA - priceB
-        case "price-high":
-          const priceA2 = a.maticPrice ? Number.parseInt(a.maticPrice.replace(/[^\d]/g, "")) : 0
-          const priceB2 = b.maticPrice ? Number.parseInt(b.maticPrice.replace(/[^\d]/g, "")) : 0
-          return priceB2 - priceA2
         case "seats":
           return Number.parseInt(b.seats) - Number.parseInt(a.seats)
         default:
@@ -105,7 +84,7 @@ export default function ArmadaPage() {
     })
 
   const handleWhatsAppBooking = (carName: string) => {
-    const message = `Halo PT VICKY RentCar Makassar! Saya tertarik untuk menyewa ${carName}. Mohon informasi lebih lanjut mengenai ketersediaan dan prosedur booking.`;
+    const message = `Halo PT VICKY RentCar Makassar! Saya penasaran harga sewa ${carName}. Mohon kirim penawaran sesuai tanggal dan kebutuhan saya, sekaligus info ketersediaannya ya.`;
     const whatsappUrl = `https://wa.me/6282363389893?text=${encodeURIComponent(message)}`;
     openWhatsApp(whatsappUrl);
   }
@@ -136,7 +115,7 @@ export default function ArmadaPage() {
           </p>
           <div className="mt-8 flex justify-center space-x-4">
             <Badge className="bg-blue-100 text-blue-800">{filteredFleet.length} Mobil Tersedia</Badge>
-            <Badge className="bg-green-100 text-green-800">Harga Mulai Rp 300K</Badge>
+            <Badge className="bg-green-100 text-green-800">Harga? Tanya via WhatsApp</Badge>
             <Badge className="bg-purple-100 text-purple-800">Booking 24/7</Badge>
           </div>
         </div>
@@ -166,7 +145,7 @@ export default function ArmadaPage() {
 
           {/* Advanced Filters */}
           {showFilters && (
-            <div className="grid lg:grid-cols-4 gap-6 p-6 bg-gray-50 rounded-xl">
+            <div className="grid lg:grid-cols-3 gap-6 p-6 bg-gray-50 rounded-xl">
               {/* Category Filter */}
               <div>
                 <h3 className="font-semibold mb-3 text-lime-600">Kategori</h3>
@@ -211,25 +190,6 @@ export default function ArmadaPage() {
                 </div>
               </div>
 
-              {/* Price Range */}
-              <div>
-                <h3 className="font-semibold mb-3 text-purple-600">Rentang Harga</h3>
-                <div className="space-y-3">
-                  <Slider
-                    value={priceRange}
-                    onValueChange={setPriceRange}
-                    max={3000000}
-                    min={0}
-                    step={100000}
-                    className="w-full"
-                  />
-                  <div className="flex justify-between text-sm text-gray-600">
-                    <span>Rp {priceRange[0].toLocaleString()}</span>
-                    <span>Rp {priceRange[1].toLocaleString()}</span>
-                  </div>
-                </div>
-              </div>
-
               {/* Sort Options */}
               <div>
                 <h3 className="font-semibold mb-3 text-gray-600">Urutkan</h3>
@@ -239,8 +199,6 @@ export default function ArmadaPage() {
                   className="w-full p-2 border rounded-lg bg-white text-gray-900"
                 >
                   <option value="name">Nama A-Z</option>
-                  <option value="price-low">Harga Terendah</option>
-                  <option value="price-high">Harga Tertinggi</option>
                   <option value="seats">Jumlah Kursi</option>
                 </select>
               </div>
@@ -342,38 +300,9 @@ export default function ArmadaPage() {
                   </div>
                 </div>
 
-                {/* Pricing Display */}
-                <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg p-4 mb-4 border">
-                  {car.allInPrice ? (
-                    <div className="text-center">
-                      <div className="text-sm text-yellow-600 font-semibold mb-1">PAKET ALL IN</div>
-                      <div className="text-2xl font-bold text-gray-900 mb-2">{car.allInPrice}</div>
-                      <div className="text-sm text-blue-600 font-semibold mb-1">LEPAS KUNCI</div>
-                      <div className="text-sm font-bold text-gray-900">{car.lepasKunci}</div>
-                    </div>
-                  ) : (
-                    <div className="grid grid-cols-2 gap-4 text-center">
-                      <div className="border-r border-gray-200 pr-2">
-                        {" "}
-                        {/* Kotak 1: MATIC */}
-                        <div className="text-sm text-emerald-600 font-semibold mb-1">MATIC</div>
-                        <div className="text-lg font-bold text-gray-900">{car.maticPrice || "N/A"}</div>
-                      </div>
-                      <div className="pl-2">
-                        {" "}
-                        {/* Kotak 2: MANUAL */}
-                        <div className="text-sm text-blue-600 font-semibold mb-1">MANUAL</div>
-                        <div className="text-lg font-bold text-gray-900">{car.manualPrice || "N/A"}</div>
-                      </div>
-                    </div>
-                  )}
-
-                  <div className="text-center mt-4 pt-4 border-t border-gray-200">
-                    {" "}
-                    {/* Kotak 3: SEWA MOBIL + SUPIR */}
-                    <div className="text-sm font-bold text-yellow-600 mb-2">SEWA MOBIL + SUPIR</div>
-                    <div className="text-xs text-emerald-600 font-semibold">HUBUNGI KAMI SEKARANG</div>
-                  </div>
+                <div className="rounded-lg p-4 mb-4 border border-emerald-200 bg-emerald-50">
+                  <p className="font-semibold text-gray-900">Penasaran berapa harga sewanya?</p>
+                  <p className="text-sm text-gray-600 mt-1">Tanya penawaran sesuai tanggal, durasi, dan kebutuhanmu.</p>
                 </div>
 
                 {/* Specifications */}
@@ -405,7 +334,7 @@ export default function ArmadaPage() {
                     className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg flex items-center justify-center space-x-2 transform hover:scale-105 transition-all"
                   >
                     <MessageCircle className="w-5 h-5" />
-                    <span>PESAN VIA WHATSAPP</span>
+                    <span>TANYA HARGA &amp; CEK UNIT VIA WA</span>
                   </Button>
 
                   <div className="grid grid-cols-2 gap-2">
@@ -433,7 +362,6 @@ export default function ArmadaPage() {
                 setSelectedCategory("all")
                 setSelectedTransmission("all")
                 setSearchQuery("")
-                setPriceRange([0, 3000000])
               }}
               className="bg-lime-600 hover:bg-lime-700"
             >
@@ -451,21 +379,18 @@ export default function ArmadaPage() {
             {[
               {
                 category: "City Car & MPV",
-                price: "Rp 300k - 750k",
                 description: "Sempurna untuk perjalanan keluarga dan dalam kota dengan efisiensi terbaik",
                 icon: "🚗",
                 features: ["Hemat BBM", "Parkir Mudah", "Nyaman Keluarga"],
               },
               {
                 category: "Executive & Premium",
-                price: "Rp 600k - 1.3M",
                 description: "Kendaraan mewah untuk perjalanan bisnis dan acara khusus",
                 icon: "🚙",
                 features: ["Interior Premium", "Captain Seat", "Business Class"],
               },
               {
                 category: "Luxury & Commercial",
-                price: "Rp 1.3M - 2.5M",
                 description: "Armada mewah untuk group travel dan keperluan VIP",
                 icon: "🚐",
                 features: ["Executive Lounge", "Group Travel", "VIP Service"],
@@ -475,7 +400,7 @@ export default function ArmadaPage() {
                 <CardContent className="p-8 text-center">
                   <div className="text-5xl mb-4">{info.icon}</div>
                   <h3 className="font-bold text-lime-600 mb-2 text-lg">{info.category}</h3>
-                  <Badge className="bg-blue-100 text-blue-800 mb-4">{info.price}</Badge>
+                  <Badge className="bg-blue-100 text-blue-800 mb-4">Tanya harga via WhatsApp</Badge>
                   <p className="text-gray-600 text-sm mb-4">{info.description}</p>
                   <div className="space-y-2">
                     {info.features.map((feature, idx) => (

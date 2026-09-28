@@ -48,7 +48,7 @@ export function WhyChooseUs() {
     {
       icon: MapPin,
       title: "Coverage Luas",
-      description: "Melayani Medan, Silangit, Danau Toba, Berastagi, dan destinasi wisata lainnya",
+      description: "Melayani Makassar dan sekitarnya",
       color: "black",
     },
     {
@@ -128,7 +128,7 @@ export function WhyChooseUs() {
                 <Award className="w-8 h-8 text-lime-600" />
               </div>
               <h3 className="text-xl font-bold text-lime-600 mb-2">Penghargaan Terpercaya</h3>
-              <p className="text-gray-600 text-sm">Diakui sebagai penyedia jasa rental mobil terbaik di Medan</p>
+              <p className="text-gray-600 text-sm">Diakui sebagai penyedia jasa rental mobil terbaik di Makassar</p>
             </div>
             <div>
               <div className="p-4 rounded-full bg-blue-100 w-16 h-16 mx-auto mb-4 flex items-center justify-center">

@@ -66,7 +66,7 @@ Mohon info ketersediaan dan harga terbaik!`
             Booking Mudah &amp; Cepat
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-            Isi form di bawah, tim kami akan hubungi dalam 5 menit via WhatsApp. Harga mulai Rp 300.000/hari!
+            Ceritakan rencana perjalananmu. Kami bantu cek unit dan kirim penawaran yang sesuai langsung via WhatsApp.
           </p>
         </div>
 
@@ -132,9 +132,9 @@ Mohon info ketersediaan dan harga terbaik!`
                       <SelectValue placeholder="City/MPV/SUV" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="city">City Car (Rp 300rb)</SelectItem>
-                      <SelectItem value="mpv">MPV Keluarga (Rp 400rb)</SelectItem>
-                      <SelectItem value="suv">SUV Premium (Rp 600rb+)</SelectItem>
+                      <SelectItem value="city">City Car</SelectItem>
+                      <SelectItem value="mpv">MPV Keluarga</SelectItem>
+                      <SelectItem value="suv">SUV Premium</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -159,7 +159,7 @@ Mohon info ketersediaan dan harga terbaik!`
                 {loading ? "Mengirim..." : submitted ? "✅ Dikirim ke WA!" : (
                   <>
                     <MessageCircle className="w-5 h-5 mr-2" />
-                    Kirim Booking ke WhatsApp
+                    Tanya Harga &amp; Kirim via WhatsApp
                   </>
                 )}
               </Button>
@@ -174,7 +174,7 @@ Mohon info ketersediaan dan harga terbaik!`
               </h3>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start"><Check className="w-5 h-5 text-emerald-600 mt-0.5 mr-3 flex-shrink-0" /><span>Respon WA <strong>5 menit</strong></span></li>
-                <li className="flex items-start"><Check className="w-5 h-5 text-emerald-600 mt-0.5 mr-3 flex-shrink-0" /><span>Harga spesial <strong>Rp 300.000/hari</strong></span></li>
+                <li className="flex items-start"><Check className="w-5 h-5 text-emerald-600 mt-0.5 mr-3 flex-shrink-0" /><span>Penawaran disesuaikan dengan rencana perjalananmu</span></li>
                 <li className="flex items-start"><Check className="w-5 h-5 text-emerald-600 mt-0.5 mr-3 flex-shrink-0" /><span>Gratis jemput <strong>Bandar Udara Internasional Sultan Hasanuddin</strong></span></li>
                 <li className="flex items-start"><Check className="w-5 h-5 text-emerald-600 mt-0.5 mr-3 flex-shrink-0" /><span><strong>Driver bersertifikat</strong> 8+ tahun pengalaman</span></li>
               </ul>

@@ -93,7 +93,7 @@ export function Navigation() {
                 <div className="relative">
                   <img
 src="/logoVRN.png"
-                    alt="CV ATS RentCar Logo"
+                    alt="PT VRN RentCar Logo"
                     className="w-8 h-8 lg:w-10 lg:h-10 rounded-lg object-cover shadow-md group-hover:shadow-lg transition-all duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-br from-lime-500/20 to-blue-800/20 rounded-lg"></div>

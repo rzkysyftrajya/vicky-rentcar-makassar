@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "PT.VRN MAKASSAR 2025 | Rental Mobil Terpercaya & Murah di Makassar",
   description:
-    "Jasa rental mobil terpercaya di Makassar 2025 dengan pengalaman 8+ tahun. Armada lengkap, driver bersertifikat, layanan 24/7. Harga mulai 300rb/hari.",
+    "Jasa rental mobil terpercaya di Makassar 2025 dengan pengalaman 8+ tahun. Armada lengkap, driver bersertifikat, layanan 24/7. Tanya harga dan ketersediaan langsung via WhatsApp.",
   keywords: [
     "rental mobil makassar 2025",
     "sewa mobil makassar murah",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     siteName: "PT.VRN MAKASSAR",
     title: "PT.VRN MAKASSAR 2025 | Rental Mobil Terpercaya & Murah",
     description:
-      "Jasa rental mobil terpercaya di Makassar dengan pengalaman 8+ tahun. Armada lengkap, driver bersertifikat, layanan 24/7. Harga mulai 300rb/hari.",
+      "Jasa rental mobil terpercaya di Makassar dengan pengalaman 8+ tahun. Armada lengkap, driver bersertifikat, layanan 24/7. Tanya harga dan ketersediaan langsung via WhatsApp.",
     images: [
       {
         url: "/logoVRN.png",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "PT.VRN MAKASSAR 2025 | Rental Mobil Terpercaya",
     description:
-      "Jasa rental mobil terpercaya di Makassar dengan pengalaman 8+ tahun. Harga mulai 300rb/hari.",
+      "Jasa rental mobil terpercaya di Makassar dengan pengalaman 8+ tahun. Tanya harga dan ketersediaan langsung via WhatsApp.",
     images: ["/logoVRN.png"],
   },
   verification: {
@@ -87,7 +87,6 @@ const jsonLd = {
     longitude: "119.4327",
   },
   openingHours: "Mo-Su 00:00-23:59",
-  priceRange: "Rp 300,000 - Rp 2,500,000",
   image: "/logoVRN.png",
   sameAs: [
     "https://instagram.com/vickyrentalnusantara",

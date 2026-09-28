@@ -22,18 +22,14 @@ export function FleetPreview() {
     name: car.name,
     image: car.image,
     category: car.category,
-    maticPrice: car.maticPrice,
-    manualPrice: car.manualPrice,
     seats: `${car.seats} kursi`,
     fuel: car.fuel,
     year: car.year,
     features: car.features,
-    allInPrice: car.allInPrice,
-    lepasKunci: car.lepasKunci,
   }));
 
   const handleWhatsAppBooking = (carName: string) => {
-    const message = `Halo PT VICKY RentCar Makassar! Saya tertarik menyewa ${carName}. Info ketersediaan, harga + supir, dan booking ya. Terima kasih!`;
+    const message = `Halo PT VICKY RentCar Makassar! Saya penasaran harga sewa ${carName}. Mohon kirim penawaran sesuai tanggal dan kebutuhan saya, sekaligus info ketersediaannya ya.`;
     const whatsappUrl = `https://wa.me/6282363389893?text=${encodeURIComponent(message)}`;
     openWhatsApp(whatsappUrl);
   };
@@ -46,8 +42,8 @@ export function FleetPreview() {
             Rental Mobil Makassar - Armada Terlengkap
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Pilihan kendaraan favorit pelanggan dengan kualitas terbaik dan
-            harga kompetitif
+            Belum tahu mobil yang cocok? Lihat armada favorit, lalu chat kami untuk
+            penawaran yang pas dengan rencana perjalananmu.
           </p>
         </div>
 
@@ -80,53 +76,10 @@ export function FleetPreview() {
                   {car.name}
                 </h3>
 
-                {/* Pricing Display */}
-                <div className="bg-gray-800/50 rounded-lg p-4 mb-4 border border-emerald-500/30">
-                  {car.allInPrice ? (
-                    <div className="text-center">
-                      <div className="text-sm text-yellow-600 font-semibold mb-1">
-                        PAKET ALL IN
-                      </div>
-                      <div className="text-lg font-bold text-gray-900 mb-2">
-                        {car.allInPrice}
-                      </div>
-                      <div className="text-sm text-blue-600 font-semibold mb-1">
-                        LEPAS KUNCI
-                      </div>
-                      <div className="text-sm font-bold text-gray-900">
-                        {car.lepasKunci}
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="grid grid-cols-2 gap-4 text-center">
-                      <div className="border-r border-gray-600 pr-2">
-                        <div className="text-sm text-emerald-600 font-semibold mb-1">
-                          MATIC
-                        </div>
-                        <div className="text-lg font-bold text-gray-900">
-                          {car.maticPrice}
-                        </div>
-                      </div>
-                      <div className="pl-2">
-                        <div className="text-sm text-blue-600 font-semibold mb-1">
-                          MANUAL
-                        </div>
-                        <div className="text-lg font-bold text-gray-900">
-                          {car.manualPrice}
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
-                <div className="text-center mt-4 pt-4 border-t border-gray-600">
-                    <div className="text-sm font-bold text-yellow-600 mb-2">
-                      MOBIL + SUPIR 12 JAM
-                    </div>
-                    <div className="text-xs text-emerald-600 font-semibold">
-                      GRATIS JEMPUT AHY
-                    </div>
+                  <div className="text-center rounded-lg p-4 mb-4 border border-emerald-500/30 bg-emerald-50">
+                    <p className="font-semibold text-gray-900">Setiap perjalanan punya kebutuhan berbeda.</p>
+                    <p className="text-sm text-gray-600 mt-1">Tanya penawaran sesuai tanggal, durasi, dan layanan yang kamu pilih.</p>
                   </div>
-                </div>
 
                 {/* Specifications */}
                 <div className="grid grid-cols-2 gap-4 mb-6 text-sm">
@@ -147,7 +100,7 @@ export function FleetPreview() {
                     className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg flex items-center justify-center space-x-2"
                   >
                     <MessageCircle className="w-5 h-5" />
-                    <span>PESAN VIA WHATSAPP</span>
+                    <span>TANYA HARGA VIA WHATSAPP</span>
                   </Button>
                 </div>
               </CardContent>

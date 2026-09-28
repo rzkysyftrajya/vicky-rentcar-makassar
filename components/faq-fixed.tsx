@@ -14,13 +14,13 @@ import { openWhatsApp } from "@/lib/whatsapp-conversion"
 const faqs = [
   {
     id: 'harga',
-    question: 'Berapa harga sewa mobil termurah?',
-    answer: 'Mulai Rp 300.000/hari untuk City Car (Ayla, Agya, Brio) + supir 12 jam. MPV keluarga Rp 350.000+, SUV premium Rp 600.000+, Luxury Rp 1.3jt+. Harga all-in tanpa biaya tersembunyi.',
+    question: 'Bagaimana cara mengetahui harga sewanya?',
+    answer: 'Tarif menyesuaikan pilihan mobil, tanggal, durasi, dan layanan yang kamu butuhkan. Chat kami di WhatsApp untuk minta penawaran yang pas—sekalian cek ketersediaan unit.',
   },
   {
     id: 'supir',
     question: 'Apakah termasuk supir?',
-    answer: 'Ya! Semua harga sudah include supir profesional bersertifikat + BBM 12 jam / 200km. Overtime Rp 75.000/jam, tol & parkir ditanggung customer.',
+    answer: 'Tersedia pilihan sewa dengan driver profesional. Detail layanan, durasi, dan ketentuan perjalanan bisa kamu tanyakan langsung lewat WhatsApp.',
   },
   {
     id: 'jemput',

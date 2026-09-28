@@ -80,11 +80,11 @@ window.open("tel:+6282363389893", "_self")
                 </div>
                 <div className="flex items-center justify-center space-x-2">
                   <MessageCircle className="w-4 h-4 text-green-400" />
-                  <span className="text-gray-300">@atsrentalmedan_</span>
+                  <span className="text-gray-300">@vickyrentalnusantara</span>
                 </div>
               </div>
               <div className="mt-4 pt-4 border-t border-emerald-500/30">
-                <p className="text-emerald-400 font-semibold text-sm">"Jasa Rental Mobil Terbaik dan Murah di Medan"</p>
+                <p className="text-emerald-400 font-semibold text-sm">"Jasa Rental Mobil Terbaik dan Murah di Makassar"</p>
               </div>
             </div>
           </CardContent>

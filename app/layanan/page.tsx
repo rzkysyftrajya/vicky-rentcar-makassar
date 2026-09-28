@@ -215,19 +215,16 @@ export default function LayananPage() {
               {
                 name: "Malino Highlands",
                 highlight: "View pegunungan & udara segar",
-                price: "Rp 1.800.000 /paket",
                 bullets: ["Include Mobil + Driver + BBM", "Rute wisata Malino & sekitarnya", "Komunikasi sebelum keberangkatan"],
               },
               {
                 name: "Rammang-Rammang",
                 highlight: "Spot alam & perahu",
-                price: "Rp 2.200.000 /paket",
                 bullets: ["Include Mobil + Driver + BBM", "Penjemputan & pengantaran", "Driver membantu arah lokasi"],
               },
               {
                 name: "City Tour Makassar",
                 highlight: "Kota, kuliner, dan ikon Makassar",
-                price: "Rp 1.350.000 /paket",
                 bullets: ["Include Mobil + Driver + BBM", "Cocok untuk keluarga & rombongan", "Tersedia pilihan durasi"],
               },
             ].map((pkg, idx) => (
@@ -243,7 +240,7 @@ export default function LayananPage() {
                   </div>
                   <h3 className="orbitron text-2xl font-bold mb-2 text-gray-900">{pkg.name}</h3>
                   <p className="text-gray-600 mb-4">{pkg.highlight}</p>
-                  <div className="text-3xl font-bold text-emerald-600 mb-4">{pkg.price}</div>
+                  <p className="text-emerald-700 font-semibold mb-4">Penasaran berapa biayanya? Tanya penawaran khusus untuk rencanamu.</p>
                   <ul className="space-y-2">
                     {pkg.bullets.map((b, i) => (
                       <li key={i} className="flex items-start space-x-2">
@@ -255,13 +252,13 @@ export default function LayananPage() {
                   <div className="mt-6">
                     <Button
                       onClick={() => {
-                        const message = `Halo PT VRN RentCar! Saya tertarik booking paket destinasi: ${pkg.name}. Mohon estimasi jadwal, ketersediaan, dan detail all-in (Mobil + Driver + BBM).`;
+                        const message = `Halo PT VRN RentCar! Saya tertarik dengan paket destinasi ${pkg.name}. Mohon info harga, ketersediaan, dan detail layanan all-in (Mobil + Driver + BBM) sesuai tanggal dan jumlah penumpang saya.`;
                         const whatsappUrl = `https://wa.me/6282363389893?text=${encodeURIComponent(message)}`;
                         openWhatsApp(whatsappUrl);
                       }}
                       className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg"
                     >
-                      Booking via WhatsApp
+                      Tanya Harga via WhatsApp
                     </Button>
                   </div>
                 </CardContent>

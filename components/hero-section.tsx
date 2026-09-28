@@ -17,7 +17,6 @@ export function HeroSection() {
   image: "/armada/avanza.webp",
   title: "Toyota Avanza",
   subtitle: "MPV Keluarga Terpopuler di Makassar",
-  price: "Rp 350.000 /hari",
       features: ["7 Penumpang", "AC Dingin", "Supir Profesional"],
       gradient: "from-blue-600/80 to-blue-800/90",
     },
@@ -25,7 +24,6 @@ export function HeroSection() {
       image: "/armada/innova-reborn.webp",
       title: "Toyota Innova Reborn",
       subtitle: "MPV Executive Premium",
-      price: "Rp 600.000 /hari",
       features: ["Captain Seat", "Interior Mewah", "8 Penumpang"],
       gradient: "from-gray-600/80 to-gray-800/90",
     },
@@ -33,7 +31,6 @@ export function HeroSection() {
       image: "/armada/fortuner.webp", 
       title: "Toyota Fortuner",
       subtitle: "SUV Tangguh 4x4",
-      price: "Rp 1.300.000 /hari",
       features: ["4WD", "Luxury", "7 Penumpang"],
       gradient: "from-slate-700/80 to-slate-900/90",
     },
@@ -41,7 +38,6 @@ export function HeroSection() {
       image: "/armada/toyota-alphard.webp",
       title: "Toyota Alphard",
       subtitle: "MPV Luxury Executive",
-      price: "Rp 2.400.000 /hari", 
       features: ["VIP Lounge", "Full Premium", "8 Penumpang"],
       gradient: "from-purple-600/80 to-purple-800/90",
     },
@@ -67,7 +63,7 @@ export function HeroSection() {
   }
 
   const handleWhatsAppBooking = () => {
-    const message = `Halo PT VICKY RentCar Makassar! Saya tertarik dengan ${heroSlides[currentSlide].title}. Mohon informasi lebih lanjut mengenai ketersediaan dan harga terbaik.`
+    const message = `Halo PT VICKY RentCar Makassar! Saya penasaran harga sewa ${heroSlides[currentSlide].title}. Mohon kirim penawaran sesuai tanggal dan kebutuhan saya, sekaligus info ketersediaannya ya.`
 
     const whatsappUrl = `https://wa.me/6282363389893?text=${encodeURIComponent(message)}`
     openWhatsApp(whatsappUrl)
@@ -161,7 +157,16 @@ export function HeroSection() {
                       <p className="text-blue-200 text-sm md:text-base">{currentSlideData.subtitle}</p>
                     </div>
                     <div className="text-center md:text-right">
-                      <p className="text-xl md:text-2xl font-bold text-lime-400">{currentSlideData.price}</p>
+                      <p className="text-sm md:text-base font-semibold text-lime-300 mb-2">
+                        Penasaran harganya?
+                      </p>
+                      <Button
+                        onClick={handleWhatsAppBooking}
+                        className="bg-green-600 hover:bg-green-700 text-white"
+                      >
+                        <MessageCircle className="w-4 h-4 mr-2" />
+                        Tanya via WhatsApp
+                      </Button>
                     </div>
                   </div>
                   <div className="flex flex-wrap justify-center gap-2">
@@ -204,7 +209,7 @@ export function HeroSection() {
                 className="bg-white text-lime-600 hover:bg-gray-100 font-semibold px-6 md:px-8 py-3 md:py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all text-sm md:text-base w-full sm:w-auto ring-2 ring-white/30"
               >
                 <MessageCircle className="w-4 h-4 md:w-5 md:h-5 mr-2" />
-                BOOKING VIA WHATSAPP
+                TANYA HARGA VIA WHATSAPP
               </Button>
               <Button
                 onClick={() => window.open("tel:+6282363389893")}
