@@ -1,0 +1,2 @@
+import type { MetadataRoute } from 'next'
+export default function sitemap(): MetadataRoute.Sitemap { const base = 'https://pt.vrnrentcarmakassar.com'; return ['', '/layanan-rental-mobil','/rental-mobil-dengan-supir','/rental-mobil-lepas-kunci','/armada','/galeri','/layanan-bandara','/kontak'].map(path => ({ url: `${base}${path}`, lastModified: new Date(), changeFrequency: 'monthly', priority: path === '' ? 1 : .8 })) }
