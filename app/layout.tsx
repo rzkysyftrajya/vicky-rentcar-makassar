@@ -1,4 +1,5 @@
 import { Analytics } from '@vercel/analytics/next'
+import Script from 'next/script'
 import type { Metadata, Viewport } from 'next'
 import { RevealObserver } from '@/src/components/reveal-observer'
 import './globals.css'
@@ -60,6 +61,26 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-K4RS37FF"
+            height="0"
+            width="0"
+            title="Google Tag Manager"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
+        <Script
+          id="google-tag-manager"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K4RS37FF');`,
+          }}
+        />
         {children}
         <RevealObserver />
         {process.env.NODE_ENV === 'production' && <Analytics />}
